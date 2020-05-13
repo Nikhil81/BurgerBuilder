@@ -5,6 +5,7 @@ const loadIngredientsSuccess = (responseDate) => {
   return {
     type: actionTypes.LOAD_INGREDIENTS_SUCCESS,
     ingredients: responseDate,
+    totalPrice: 2,
   };
 };
 
