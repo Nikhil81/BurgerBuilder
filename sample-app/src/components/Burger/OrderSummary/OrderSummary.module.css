@@ -1,0 +1,27 @@
+.ButtonPrimary {
+  margin: 5px;
+  padding: 5px 10px;
+  background-color: #ec7211;
+  border-color: #ec7211 #ec7211 #ec7211;
+  text-shadow: rgba(0, 0, 0, 0.05) 0 1px 0;
+  color: white;
+  cursor: pointer;
+}
+
+.OrderSummary {
+  margin: auto;
+  text-align: center;
+}
+
+.TextContent {
+  padding: 10px;
+}
+
+.TotalPrice {
+  font-size: large;
+  padding: 3px;
+  border: 1px solid #ec7211;
+  width: 50%;
+  margin: 10px auto;
+  font-weight: bold;
+}

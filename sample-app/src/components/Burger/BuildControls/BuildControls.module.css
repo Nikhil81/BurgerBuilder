@@ -1,0 +1,20 @@
+.BuildControls {
+  width: 100%;
+  background-color: #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+  padding: 10px 0;
+}
+.ButtonCheckout {
+  margin: 15px 20px;
+  padding: 10px 10px;
+  background-color: #ec7211;
+  border-color: #ec7211 #ec7211 #ec7211;
+  text-shadow: rgba(0, 0, 0, 0.05) 0 1px 0;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 10%;
+}

@@ -1,0 +1,36 @@
+.NavigationItem {
+  display: inline-block;
+  list-style: none;
+  margin: auto 10px;
+  margin-left: 7px;
+  cursor: pointer;
+  position: relative;
+  top: -17px;
+  color: #ec7211;
+  text-decoration: none;
+}
+
+.SideDrawer {
+  display: block;
+  list-style: none;
+  margin: 30px;
+  margin-left: 7px;
+  cursor: pointer;
+  position: relative;
+  color: #ec7211;
+  font-size: 1.5rem;
+}
+
+.NavigationItem:focus,
+.NavigationItem:active,
+.NavigationItem:hover {
+  border-bottom: 2px solid #ec7211;
+  outline: none;
+  transform: scale(1.1);
+}
+
+@media (max-width: 500px) {
+  .NavigationItem {
+    display: none;
+  }
+}

@@ -1,0 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
+.Content {
+  padding-top: 2.5rem;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.5),
+    rgba(247, 247, 202, 0.5)
+  );
+}

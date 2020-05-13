@@ -1,0 +1,28 @@
+.ButtonCancel {
+  margin: 5px;
+  padding: 5px 10px;
+  background-color: transparent;
+  border-color: #eee;
+  text-shadow: rgba(0, 0, 0, 0.05) 0 1px 0;
+  color: black;
+  cursor: pointer;
+}
+
+.Button {
+  margin: 5px 20px;
+  padding: 5px 10px;
+  background-color: #ec7211;
+  border-color: #ec7211 #ec7211 #ec7211;
+  text-shadow: rgba(0, 0, 0, 0.05) 0 1px 0;
+  color: white;
+  cursor: pointer;
+}
+.Button:disabled {
+  margin: 5px 20px;
+  padding: 5px 10px;
+  background-color: #ee9a54;
+  border-color: #ee9a54 #ee9a54 #ee9a54;
+  text-shadow: rgba(0, 0, 0, 0.05) 0 1px 0;
+  color: rgb(218, 205, 205);
+  cursor: not-allowed;
+}
