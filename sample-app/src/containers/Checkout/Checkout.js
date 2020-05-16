@@ -1,29 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route } from "react-router-dom";
 import { connect } from "react-redux";
 
 import classes from "./Checkout.module.css";
 import CheckoutSummary from "../../components/Orders/CheckoutSummary/CheckoutSummary";
 import ContactData from "../ContactData/ContactData";
+import { burderBuildingFinish } from "../../redux/actions";
 
-const Checkout = ({ history, ingredients, match }) => {
+const Checkout = ({ history, ingredients, match, burderBuildingFinish }) => {
   //const [ingredients, setIngredients] = useState({});
   //const [totalPrice, setTotalPrice] = useState(0);
 
   //const { search } = location;
 
-  // useEffect(() => {
-  //   const query = new URLSearchParams(search);
-  //   let ingredients = {};
-  //   for (let params of query.entries()) {
-  //     if (params[0] === "price") {
-  //       setTotalPrice(params[1]);
-  //     } else {
-  //       ingredients[params[0]] = +params[1];
-  //     }
-  //   }
-  //   setIngredients({ ...ingredients });
-  // }, []);
+  useEffect(() => {
+    burderBuildingFinish();
+  }, [burderBuildingFinish]);
   const cancelHander = () => {
     history.push("/");
   };
@@ -58,4 +50,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Checkout);
+const mapDispatchToProps = {
+  burderBuildingFinish,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Checkout);

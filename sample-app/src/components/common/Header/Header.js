@@ -1,14 +1,17 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import classes from "./Header.module.css";
 import Logo from "../Logo/Logo";
 import NavigationItem from "../NavigationItem/NavigationItem";
 
-const header = ({ toggleSidebar }) => {
+const header = ({ toggleSidebar, isAuthententicated }) => {
+  const logInLogout = isAuthententicated ? "Logout" : "Login";
+  const orders = isAuthententicated ? "Orders" : "";
   const NavigationData = {
     Home: "/",
-    Order: "/Orders",
-    Login: "/Login",
+    [orders]: "/Orders",
+    [logInLogout]: isAuthententicated ? "/Logout" : "/Login",
   };
   return (
     <div className={classes.Header}>
@@ -36,4 +39,10 @@ const header = ({ toggleSidebar }) => {
   );
 };
 
-export default header;
+const mapStateToProps = (state) => {
+  return {
+    isAuthententicated: state.auth.token != null,
+  };
+};
+
+export default connect(mapStateToProps)(header);

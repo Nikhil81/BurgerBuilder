@@ -8,10 +8,10 @@ const getAllOrdersSuccess = (ingredients) => {
   };
 };
 
-export const getAllOrders = () => {
+export const getAllOrders = (token) => {
   return (dispatch) => {
     axios
-      .get("/orders.json")
+      .get("/orders.json?auth=" + token)
       .then((response) => {
         if (response.status === 200) {
           let transformetData = [];

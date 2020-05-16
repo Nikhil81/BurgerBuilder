@@ -1,6 +1,17 @@
 import axios from "../../axios-order";
 import * as actionTypes from "./actionType";
 
+export const burderBuilding = () => {
+  return {
+    type: actionTypes.BUGER_BUILDING,
+  };
+};
+export const burderBuildingFinish = () => {
+  return {
+    type: actionTypes.BUGER_BUILDING_FINISHED,
+  };
+};
+
 const loadIngredientsSuccess = (responseDate) => {
   return {
     type: actionTypes.LOAD_INGREDIENTS_SUCCESS,

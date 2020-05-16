@@ -9,6 +9,7 @@ const buildControls = ({
   removeIngredientsHandler,
   isPurchasable,
   checkOutHandler,
+  buttonText,
 }) => {
   let transformedIngredients = Object.keys(ingredients).map((igkey) => {
     return (
@@ -27,7 +28,7 @@ const buildControls = ({
     <div className={classes.BuildControls}>
       {isPurchasable && (
         <button className={classes.ButtonCheckout} onClick={checkOutHandler}>
-          Order Now
+          {buttonText}
         </button>
       )}
       {transformedIngredients}

@@ -1,0 +1,32 @@
+.Auth {
+  width: 50%;
+  align-items: center;
+  padding: 50px;
+  padding-top: 3rem;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 0px 19px black;
+  height: 100%;
+  margin: 10px auto;
+  border-radius: 20px;
+  background: white;
+}
+
+.Container {
+  margin: auto;
+  text-align: center;
+  padding: 10px;
+}
+.Label {
+  padding-right: 15px;
+}
+.ValidationLabel {
+  font-size: 10px;
+  color: red;
+  display: block;
+}
+.ValidationSpan {
+  color: red;
+}
+.ErrorMessage {
+  text-align: center;
+}

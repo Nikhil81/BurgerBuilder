@@ -6,10 +6,10 @@ import classes from "./Orders.module.css";
 import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 import { getAllOrders } from "../../redux/actions";
 
-const Order = ({ orders, getAllOrders }) => {
+const Order = ({ orders, getAllOrders, token }) => {
   useEffect(() => {
-    getAllOrders();
-  }, [getAllOrders]);
+    getAllOrders(token);
+  }, [getAllOrders, token]);
 
   return (
     <>
@@ -32,6 +32,7 @@ const Order = ({ orders, getAllOrders }) => {
 const mapStateToProps = (state) => {
   return {
     orders: state.orders,
+    token: state.auth.token,
   };
 };
 

@@ -16,6 +16,7 @@ import {
   loadIngredients,
   addIngredients,
   removeIngredietns,
+  burderBuilding,
 } from "../../redux/actions";
 
 class BurgerBuild extends Component {
@@ -29,7 +30,14 @@ class BurgerBuild extends Component {
     this.props.loadIngredients();
   }
   closeHander = () => this.setState({ purchasing: false });
-  checkOutHandler = () => this.setState({ purchasing: true });
+  checkOutHandler = () => {
+    if (this.props.isAuthenticated) {
+      this.setState({ purchasing: true });
+    } else {
+      this.props.burderBuilding();
+      this.props.history.push("/Login");
+    }
+  };
   updatePurchasableState = (ingredients) => {
     const sum = Object.keys(ingredients)
       .map((igkey) => {
@@ -50,11 +58,6 @@ class BurgerBuild extends Component {
     const oldTotalPrice = this.props.totalPrice;
     const updatedPrice = INGREDIENTS_PRICE[type] + oldTotalPrice;
     this.props.addIngredients(updatedIngredients, updatedPrice);
-
-    // this.setState({
-    //   totalPrice: updatedPrice,
-    //   ingredients: updatedIngredients,
-    // });
     this.updatePurchasableState(updatedIngredients);
   };
 
@@ -69,23 +72,11 @@ class BurgerBuild extends Component {
     const oldTotalPrice = this.props.totalPrice;
     const updatedPrice = oldTotalPrice - INGREDIENTS_PRICE[type];
     this.props.removeIngredietns(updatedIngredients, updatedPrice);
-    // this.setState({
-    //   totalPrice: updatedPrice,
-    //   ingredients: updatedIngredients,
-    // });
     this.updatePurchasableState(updatedIngredients);
   };
 
   chcekOutHandler = () => {
     this.setState({ isLoading: true });
-    // const queryParams = [];
-    // for (let i in this.props.ingredients) {
-    //   queryParams.push(
-    //     encodeURI(i) + "=" + encodeURI(this.props.ingredients[i])
-    //   );
-    // }
-    // queryParams.push("&price=" + this.props.totalPrice);
-    // const queryString = queryParams.join("&");
     this.props.history.push({
       pathname: "/checkout",
     });
@@ -121,6 +112,9 @@ class BurgerBuild extends Component {
             removeIngredientsHandler={this.removeIngredientsHander}
             isPurchasable={this.state.purchasable}
             checkOutHandler={this.checkOutHandler}
+            buttonText={
+              this.props.isAuthenticated ? "Order Now" : "Sing in to Order"
+            }
           />
         </div>
         <ToastContainer autoClose={3000} />
@@ -133,12 +127,14 @@ const mapStateToProps = (state) => {
   return {
     ingredients: state.ingredients.ingredients,
     totalPrice: state.ingredients.totalPrice,
+    isAuthenticated: state.auth.token !== null,
   };
 };
 const mapDispatchToProps = {
   loadIngredients,
   addIngredients,
   removeIngredietns,
+  burderBuilding,
 };
 
 export default connect(

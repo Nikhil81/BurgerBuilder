@@ -7,6 +7,7 @@ const updateIngredients = (state, actions) => {
   const updateIngredients = {
     ingredients: updatedIngredient,
     totalPrice: actions.totalPrice,
+    building: false,
   };
   return updateObject(state, updateIngredients);
 };
@@ -19,6 +20,10 @@ const ingredientsReducer = (state = initialState, actions) => {
       return updateIngredients(state, actions);
     case actionTypes.REMOVE_INGREDIETNS_SUCCESS:
       return updateIngredients(state, actions);
+    case actionTypes.BUGER_BUILDING:
+      return updateObject(state, { building: true });
+    case actionTypes.BUGER_BUILDING_FINISHED:
+      return updateObject(state, { building: false });
     default:
       return state;
   }
