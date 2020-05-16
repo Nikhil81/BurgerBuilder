@@ -1,6 +1,6 @@
 import * as actionTypes from "../actions/actionType";
 import initialState from "./authInitialState";
-import { updateObject } from "../utility";
+import { updateObject } from "../../shared/utility";
 
 const authReducers = (state = initialState, action) => {
   switch (action.type) {

@@ -30,7 +30,6 @@ export const loadIngredients = () => {
         }
       })
       .catch((error) => {
-        console.log("error");
         // toast.error("Error Fetching data");
       });
   };

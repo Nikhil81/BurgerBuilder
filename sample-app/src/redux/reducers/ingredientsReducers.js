@@ -1,6 +1,6 @@
 import * as actionTypes from "../actions/actionType";
 import initialState from "./initialState";
-import { updateObject } from "../utility";
+import { updateObject } from "../../shared/utility";
 
 const updateIngredients = (state, actions) => {
   const updatedIngredient = { ...actions.ingredients };

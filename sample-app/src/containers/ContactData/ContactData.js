@@ -97,12 +97,11 @@ const ContactData = ({ ingredients, totalPrice, history }) => {
       customerContactDetails[contactKey] = contactDetails[contactKey].value;
     }
     setIsLoading(true);
-    const orders = {
-      ingredients: ingredients,
-      totalPrice: totalPrice,
-      customer: customerContactDetails,
-    };
-    console.log(orders);
+    // const orders = {
+    //   ingredients: ingredients,
+    //   totalPrice: totalPrice,
+    //   customer: customerContactDetails,
+    // };
   };
 
   if (isLoading) {
